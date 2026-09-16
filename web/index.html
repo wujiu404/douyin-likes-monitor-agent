@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>抖音点赞监控 · 控制台</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span>点赞监控 Agent</div>
+
+    <nav id="nav">
+      <a href="#/overview" data-view="overview">总览</a>
+      <a href="#/accounts" data-view="accounts">监控账号</a>
+      <a href="#/videos"   data-view="videos">视频快照</a>
+      <a href="#/deltas"   data-view="deltas">增量与告警</a>
+      <a href="#/reviews"  data-view="reviews">评论确认<span class="badge" id="badgeReviews"></span></a>
+      <a href="#/rounds"   data-view="rounds">扫描台账</a>
+      <a href="#/config"   data-view="config">配置表</a>
+    </nav>
+
+    <div class="side-foot">
+      <div class="kv"><span>调度</span><b id="schedInfo">—</b></div>
+      <div class="kv"><span>下次</span><b id="nextRun">—</b></div>
+      <div class="kv"><span>数据源</span><b id="chainInfo" title="当前配置的数据源链：下一轮扫描按这个顺序尝试">—</b></div>
+      <div class="kv"><span>上轮</span><b id="lastSrcInfo" title="最近一轮扫描实际用到的源。切档不会重跑，所以这里要等下一轮扫描才会跟着变；留空表示那一轮没取到数据源">—</b></div>
+      <div class="kv"><span>扫描中</span><b id="scanState">否</b></div>
+      <a class="doc-link" href="/docs" target="_blank">API 文档 ↗</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">总览</h1>
+        <p class="sub" id="pageSub">点击「手动扫描」跑一轮，看增量与告警怎么产生</p>
+      </div>
+      <div class="actions">
+        <button id="btnScan" class="btn primary">手动扫描</button>
+      </div>
+    </header>
+
+    <div id="toast" class="toast"></div>
+    <div id="view" class="view"><div class="loading">加载中…</div></div>
+  </main>
+
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
